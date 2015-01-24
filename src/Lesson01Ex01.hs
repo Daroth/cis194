@@ -12,14 +12,9 @@ toDigits x
 toDigitsRev :: Integer -> [Integer]
 toDigitsRev = reverse . toDigits
 
+doubleEveryOther :: [Integer] ->  [Integer]
+doubleEveryOther xs = zipWith (*) (reverse $ take (length xs) $ cycle [1,2]) xs
 
-doubleEveryOther :: [Integer] -> [Integer]
-doubleEveryOther card = reverse (step1' (reverse card) 0)
-    where step1' [] _ = []
-          step1' (x:xs) 0 = x : (step1' xs 1)
-          step1' (x:xs) 1 = (2 * x) : (step1' xs 0)
-
---step2 :: Num a => [a] -> Int
 sumDigits :: [Integer] -> Integer
 sumDigits card = sum (concatMap toDigits card)
 
@@ -31,7 +26,5 @@ main = do
     putStrLn "Ex1"
     putStrLn . show $ validate 4012888888881881
     putStrLn . show $ validate 4012888888881882
-    --putStrLn . show $ s2
-    --putStrLn . show $ step3 s2
-    --where s1 = doubleEveryOther  [1,3,8,6]
---          s2 = sumDigits s1
+    putStrLn . show $ doubleEveryOther [8,7,6,5]
+    putStrLn . show $ doubleEveryOther [1,2,3]
