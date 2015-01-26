@@ -19,12 +19,12 @@ sumDigits :: [Integer] -> Integer
 sumDigits card = sum (concatMap toDigits card)
 
 validate :: Integer -> Bool
-validate x = ((ttl x) `mod` 10) == 0
+validate x = ttl x `mod` 10 == 0
     where ttl  = fromInteger  . sumDigits  .doubleEveryOther .  integerToIntegerList
 
 main = do
     putStrLn "Ex1"
-    putStrLn . show $ validate 4012888888881881
-    putStrLn . show $ validate 4012888888881882
-    putStrLn . show $ doubleEveryOther [8,7,6,5]
-    putStrLn . show $ doubleEveryOther [1,2,3]
+    print $ validate 4012888888881881
+    print $ validate 4012888888881882
+    print $ doubleEveryOther [8,7,6,5]
+    print $ doubleEveryOther [1,2,3]
