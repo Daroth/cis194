@@ -10,6 +10,6 @@ auto-hidden: []
 cabal-file: project.cabal
 version: 1
 extra-packages: ''
-ghc-args:
-- -fdefer-type-errors
-excluded-modules: []
+ghc-args: []
+excluded-modules:
+- src/Main.hs

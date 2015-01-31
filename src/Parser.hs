@@ -94,6 +94,7 @@ execParser (State f) = f
 
 -- Run a parser over a 'String' returning the parsed value.
 evalParser :: Parser a -> String -> Maybe a
+-- Parser a -> String -> Maybe (a, String) // Parser a -> String -> Maybe (a, String) // (String -> Maybe (a, String)) -> String -> Maybe a
 evalParser = (fmap fst .) . execParser
 
 -- Parse an arithmetic expression using the supplied semantics for
